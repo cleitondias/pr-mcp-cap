@@ -1,0 +1,56 @@
+openapi: 3.0.3
+info:
+  title: MCP CAP
+  description: API used by Copilot Studio to call SAP CAP MCP tools
+  version: "1.0.0"
+
+servers:
+  - url: https://pr-mcp-cap-accountable-bear-ln.cfapps.us10-001.hana.ondemand.com
+
+paths:
+  /mcp/call:
+    post:
+      summary: Call an MCP tool hosted in SAP CAP
+      operationId: callMcpTool
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - tool
+                - input
+              properties:
+                tool:
+                  type: string
+                  description: Name of the MCP tool to execute
+                  example: sap_s4_get_purschase_requistion
+                input:
+                  type: object
+                  description: Input payload for the tool
+                  example:
+                    prId: "10000000"
+      responses:
+        "200":
+          description: Tool execution result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: text
+                        text:
+                          type: string
+                          example: Purchase Requisition 10000000 found
+        "400":
+          description: Invalid request
+        "500":
+          description: Internal server error

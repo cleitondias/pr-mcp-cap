@@ -1,0 +1,20 @@
+{
+  "name": "pr-mcp-cap",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "private": true,
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.2",
+    "@sap/cds": "^9",
+    "@sap/xssec": "^4.12.1",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  }
+}

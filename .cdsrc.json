@@ -1,0 +1,9 @@
+{
+  "requires": {
+    "auth": {
+      "[production]": {
+        "kind": "dummy"
+      }
+    }
+  }
+}

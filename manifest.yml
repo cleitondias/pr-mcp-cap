@@ -1,0 +1,9 @@
+applications:
+  - name: pr-mcp-cap
+    random-route: true
+    memory: 256M
+    buildpacks:
+      - nodejs_buildpack
+    env:
+      SAP_API_KEY: ""
+      SAP_BASE: "https://sandbox.api.sap.com"
